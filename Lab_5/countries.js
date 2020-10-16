@@ -1,5 +1,10 @@
 /* N.B. - For your lab, use the variable "countries" now available on the window space */
-const myName = document.querySelector (".header")
+
+//1-Add a header to the lab with "YourName's List Of Countries"
+let myFullName = 'Akpokli FoliSosro'; 
+const myFullName = document.querySelector (".header")
+myFullName.innerText + "\'s List Of Countries";
+
 const countries = [
   { name: "Afghanistan", code: "AF" },
   { name: "Åland Islands", code: "AX" },
@@ -246,3 +251,42 @@ const countries = [
   { name: "Zimbabwe", code: "ZW" },
 ];
 console.log("List of countries in the world", countries);
+
+//2-Using JS, inject an ordered list into the div with the class "content"
+const countryList = document.querySelector(".content");
+const btn = document.createElement(button);
+countryList.appendChild(btn);
+btn.innerText = "List of Countries";
+
+//3-Give your new ordered list the class "countries"
+const OrderList = document.createElement("ol");
+
+//4-Design the following function to run on the click of a button from the index page
+OrderList.addEventListener('click', getRandomCountries );
+
+//Select 25 random countries from your list by writing a separate function that makes use of Math.random
+function getRandomCountries (){
+  let countries = [];
+  while (countries.length < 25) 
+  {let index = Math.floor(Math.random() * countryList.length);
+    for (let i = 0; i < countryList.length; i++)
+    {
+      if(!countries.includes(countryList[index]))
+      {
+        countries.push(countryList[index]);
+      }
+      
+    }
+
+
+  }
+  countries.sort((name1, name2) =>  (name1.name > name2.name) ? 1 : -1);
+btn.innerHTML = countries.map(function (country){
+  return '<li>' + '<b>' + country['code'] + '</b>' + ", " + country['name'] + '</li>';
+}).join('');
+for(let key in x=countryList){
+  if(!countries.includes(countryList[key])){
+    console.log(countryList[key].code + " : "+ countryList[key].name)
+  }
+}
+}
