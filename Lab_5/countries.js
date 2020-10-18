@@ -285,7 +285,7 @@ btn.innerHTML = countries.map(function (country){
   return '<li>' + '<b>' + country['code'] + '</b>' + ", " + country['name'] + '</li>';
 }).join('');
 for(let key in x=countryList){
-  if(!countries.includes(countryList[key])){
+   if(!countries.includes(countryList[key])){
     console.log(countryList[key].code + " : "+ countryList[key].name)
   }
 }
