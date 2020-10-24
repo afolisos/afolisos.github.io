@@ -1,48 +1,48 @@
 /* Set document default styles for text */
 body {
     display: flex;
-    
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: khaki;
+    background-color: rgb(140, 192, 240);
     margin: 40px;
   }
   
-  ul {
+ul {
     list-style: none;
     padding: 0;
     margin: 0;
   }
   
-  form li + li {
+form li + li {
       margin-top: 1em;
   }
-  input,
-  textarea{
+input,
+  textarea {
       font: georgia;
       border: 1px solid;
   }
-  label{
+
+label{
       display: inline-block;
       }
 
-    button {
+button {
      border-radius: 1px;
      background-color: snow;
     }
-    input:focus{
+input:focus{
         border-color: lavenderblush;
     }
-    textarea {
+textarea {
         border-color: lavenderblush;
         padding: 10px;
 
     }
-    label,
+label,
     textarea {
         letter-spacing: 1px;
     }
-    label{
+label{
         display: block;
     }
