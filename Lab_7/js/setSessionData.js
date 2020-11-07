@@ -1,14 +1,29 @@
 const main = document.getElementById("main");
 
 function getClasses(){
-    
-    let classId =  ""; // Your code here
+    let busRoute = document.getElementById("busroute").value; // Your code here
 
-    if(typeof classId !== "undefined" & classId !== ""){
+    if(typeof busRoute !== "undefined" & busRoute !== ""){
         
-        let classURL =  ""; // Your code here
+        let busRouteURL =  "https://api.umd.io/v0/bus/routes/ + busRoute"; // Your code here
 
         // YOUR CODE HERE
+        fetch(busRouteURL)
+        .then((response) => {
+            return response.json();
+        })
+        .then((route) => {
+            console.log(busRouteURL);
+            sessionStorage.setItem("title", route.title);
+            sessionStorage.setItem("latMax", route.lat_max);
+            sessionStorage.setItem("latMin", route.lat_min);
+            sessionStorage.setItem("lonMax", route.lon_max);
+            sessionStorage.setItem("lonMin",route.lon_min);
+            main.innerHTML = "Session saved";
+        }
+        )
+
+        
         
     }
     else{
