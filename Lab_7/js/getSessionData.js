@@ -8,7 +8,7 @@ let lon_min = sessionStorage.getItem("lonMin");
 // Your code here
 // Set the corresponding <p> elements in the GetSessionData.html page with the values from above
 document.getElementById("title").innerHTML = title;
-document.getElementById("latMax").innerHTML = lat_max;
-document.getElementById("latMin").innerHTML = lat_min;
-document.getElementById("lonMax").innerHTML = lon_max;
-document.getElementById("lonMin").innerHTML = lon_min;
+document.getElementById("lat_max").innerHTML = lat_max;
+document.getElementById("lat_min").innerHTML = lat_min;
+document.getElementById("lon_max").innerHTML = lon_max;
+document.getElementById("lon_min").innerHTML = lon_min;
