@@ -22,9 +22,10 @@ function getClasses(){
             main.innerHTML = "Session saved";
         }
         )
-
-        
-        
+        .catch((err) => {
+            console.log(err);
+            main.innerHTML = "Invalid bus route"
+        })
     }
     else{
         main.innerHTML = "No value provided";
