@@ -23,6 +23,7 @@ function getBusRoute() {
         console.log(err);
         main.innerHTML = "Invalid bus route";
       });
+      
   } else {
     sessionStorage.setItem("title", "No value provided");
     sessionStorage.setItem("lat_max", "No value provided");
