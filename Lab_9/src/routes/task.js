@@ -51,6 +51,28 @@ router.get('/task', (req, res) => {
         })
       });
 })
+// Get with Params :id is a variable and it is a parameter 
+router.get('/task/:id', (req, res) => {
+   
+    if (!req.params.id) {
+        return res.status(400).send('Missing URL parameter id')
+    }
+    let sql = "select * from tasklist where id = ?"
+    console.log("req.params.id: " + req.params.id)
+    let params = [req.params.id]
+    db.get(sql, params, (err, row) => {
+        if (err) {
+          res.status(400).json({"error":err.message});
+          return;
+        }
+        res.json({
+            "message":"success",
+            "data":row
+        })
+      });
+})
+
+
 
 //Update
 router.put('/task', (req, res) => {
@@ -96,6 +118,21 @@ router.delete("/task", (req, res, next) => {
             res.json({"message":"deleted", changes: this.changes})
     });
 })
+
+// Delete with Params
+router.delete("/task/:id", (req, res, next) => {
+    db.run(
+        'DELETE FROM tasklist WHERE id = ?',
+        req.params.id,
+        function (err, result) {
+            if (err){
+                res.status(400).json({"error": res.message})
+                return;
+            }
+            res.json({"message":"deleted", changes: this.changes})
+    });
+})
+
 
 
 
